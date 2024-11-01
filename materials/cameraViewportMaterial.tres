@@ -2,10 +2,10 @@
 
 [ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="1_h57l8"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nc20q"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hcbnr"]
 viewport_path = NodePath("SubViewport")
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_h57l8")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_nc20q")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_hcbnr")

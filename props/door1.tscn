@@ -14,12 +14,14 @@ other_portal = NodePath(".")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
+layers = 8
 material_override = ExtResource("1_sofdp")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
+cull_mask = 1048567
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
