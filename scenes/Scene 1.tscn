@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p3hcebkfevwd"]
+[gd_scene load_steps=9 format=3 uid="uid://p3hcebkfevwd"]
 
 [ext_resource type="PackedScene" uid="uid://dnowu1e2amw8r" path="res://props/player.tscn" id="1_7xdhy"]
 [ext_resource type="PackedScene" uid="uid://dgeackiuu2bov" path="res://props/door1.tscn" id="1_ix44n"]
@@ -10,10 +10,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_5loge"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ijj6p"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_1v5lq"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_w6d3h"]
 
 [node name="Scene1" type="Node3D"]
 script = ExtResource("1_ob8hp")
@@ -41,37 +37,20 @@ material_override = ExtResource("2_3jywk")
 mesh = SubResource("BoxMesh_ijj6p")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="Door" parent="." instance=ExtResource("1_ix44n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24185, 1.39773, -8.69039)
-
-[node name="Door2" parent="." instance=ExtResource("1_ix44n")]
-transform = Transform3D(0.450878, 0, 0.892586, 0, 1, 0, -0.892586, 0, 0.450878, 0, 1.7076, 4.32783)
-
 [node name="Player" parent="." instance=ExtResource("1_7xdhy")]
-transform = Transform3D(0.959039, -0.0248178, 0.282185, 0.0145982, 0.999161, 0.0382611, -0.282897, -0.0325745, 0.958597, -3.51255, 1.5004, -5.33375)
+transform = Transform3D(0.999653, -0.0137453, -0.0224615, 0.0145982, 0.999161, 0.0382611, 0.0219175, -0.0385757, 0.999016, -3.61181, 1.5004, -5.21556)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.927986, 0.372615, 0, -0.372615, 0.927986, 0, 4.57469, 7.79151)
 
-[node name="cube" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cube"]
-shape = SubResource("BoxShape3D_5loge")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="cube/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999842, -0.0177665, 0, 0.0177665, 0.999842, -0.774016, 1.36081, 4.80615)
-mesh = SubResource("PrismMesh_1v5lq")
-
-[node name="sphere" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29188, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere"]
-shape = SubResource("BoxShape3D_5loge")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="sphere/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999842, -0.0177665, 0, 0.0177665, 0.999842, -3.52008, -1.26402, -7.51787)
-mesh = SubResource("SphereMesh_w6d3h")
-
 [node name="TestCube" parent="." instance=ExtResource("6_igut6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939169, 2.85384, -8.09085)
 color = "Green"
+
+[node name="Door" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("1_ix44n")]
+transform = Transform3D(-0.982444, 0, 0.186558, 0, 1, 0, -0.186558, 0, -0.982444, 0, 1.2579, 4.94084)
+other_portal = NodePath("../Door2")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("1_ix44n")]
+transform = Transform3D(-0.999949, 0, 0.0101228, 0, 1, 0, -0.0101228, 0, -0.999949, -3.7761, 1.63372, -8.21968)
+other_portal = NodePath("../Door")

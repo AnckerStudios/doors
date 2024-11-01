@@ -5,7 +5,7 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = vec2(UV.x * 1.5, UV.y);
+	vec2 uv = vec2(UV.x, UV.y);
 	ALBEDO = texture(base_texture, uv * scale).xyz;
 }
 

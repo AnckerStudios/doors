@@ -8,7 +8,11 @@ extends Area3D
 @export var other_portal : Node3D = self;
 @export var cull_layer : int = 4
 
+@onready var camera_shader = preload("res://shaders/cameraViewportSample.gdshader")
 func _ready():
+	var material = ShaderMaterial.new()
+	material.shader = camera_shader
+	box.material_override = material
 	
 	box.material_override.set_shader_parameter("texture_albedo", viewport.get_texture())
 	box.set_layer_mask_value(1, false)
@@ -29,7 +33,6 @@ func _update_camera_to_other_portal():
 	portal_camera.fov = player_camera.fov
 	
 	portal_camera.cull_mask = player_camera.cull_mask
-	portal_camera.set_cull_mask_value(other_portal.cull_layer, false)
 	
 	viewport.size = get_viewport().get_visible_rect().size
 	viewport.msaa_3d = get_viewport().msaa_3d
