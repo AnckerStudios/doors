@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dkkja8achgh74"]
+
+[ext_resource type="Shader" path="res://shaders/baseShader.gdshader" id="1_qjlrc"]
+[ext_resource type="Texture2D" uid="uid://dpbg0kiuurhsj" path="res://textures/parallax-albedo.png" id="2_irde5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qjlrc")
+shader_parameter/scale = 15.0
+shader_parameter/base_texture = ExtResource("2_irde5")

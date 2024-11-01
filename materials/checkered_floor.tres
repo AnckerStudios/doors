@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dl0gqsy5a4kmw"]
+
+[ext_resource type="Shader" path="res://shaders/baseShader.gdshader" id="1_qwhng"]
+[ext_resource type="Texture2D" uid="uid://8o6xcbi6tguo" path="res://textures/tilefloor.png" id="2_v8b6c"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qwhng")
+shader_parameter/scale = 20.0
+shader_parameter/base_texture = ExtResource("2_v8b6c")

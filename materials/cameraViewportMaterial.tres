@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ig32uvo4gmbn"]
+
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="1_h57l8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nc20q"]
+viewport_path = NodePath("SubViewport")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h57l8")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_nc20q")

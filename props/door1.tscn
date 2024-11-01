@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgeackiuu2bov"]
+
+[ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
+[ext_resource type="Material" uid="uid://ig32uvo4gmbn" path="res://materials/cameraViewportMaterial.tres" id="1_sofdp"]
+[ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_pdw7a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qidfs"]
+
+[node name="Door" type="Area3D" node_paths=PackedStringArray("other_portal")]
+script = ExtResource("1_fi1y0")
+other_portal = NodePath(".")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("1_sofdp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.43334, 0)
+material_override = ExtResource("3_5a2e0")
+mesh = SubResource("PrismMesh_pdw7a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0.15)
+visible = false
+mesh = SubResource("BoxMesh_qidfs")
