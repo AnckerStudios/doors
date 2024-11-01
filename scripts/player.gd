@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	if pickedObject != null:
 		var a = pickedObject.global_transform.origin
 		var b = hand.global_transform.origin
+		pickedObject.linear_velocity = pickedObject.linear_velocity * 0.95
 		pickedObject.apply_central_impulse((b-a))
 
 func _process(delta):

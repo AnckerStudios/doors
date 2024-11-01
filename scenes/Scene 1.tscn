@@ -44,13 +44,15 @@ transform = Transform3D(0.999653, -0.0137453, -0.0224615, 0.0145982, 0.999161, 0
 transform = Transform3D(1, 0, 0, 0, 0.927986, 0.372615, 0, -0.372615, 0.927986, 0, 4.57469, 7.79151)
 
 [node name="TestCube" parent="." instance=ExtResource("6_igut6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939169, 2.85384, -8.09085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939169, 1.49534, -1.6189)
 color = "Green"
 
-[node name="Door" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("1_ix44n")]
-transform = Transform3D(-0.982444, 0, 0.186558, 0, 1, 0, -0.186558, 0, -0.982444, 0, 1.2579, 4.94084)
-other_portal = NodePath("../Door2")
+[node name="TestCube2" parent="." instance=ExtResource("6_igut6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01245, 1.69692, -6.62226)
 
-[node name="Door2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("1_ix44n")]
-transform = Transform3D(-0.999949, 0, 0.0101228, 0, 1, 0, -0.0101228, 0, -0.999949, -3.7761, 1.63372, -8.21968)
-other_portal = NodePath("../Door")
+[node name="Door" parent="." instance=ExtResource("1_ix44n")]
+transform = Transform3D(-0.999224, 0, -0.039382, 0, 1, 0, 0.039382, 0, -0.999224, 0, 2.0066, 0)
+cull_layer = 3
+
+[node name="Door2" parent="." instance=ExtResource("1_ix44n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81944, -6.4408)
