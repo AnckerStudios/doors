@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgeackiuu2bov"]
+[gd_scene load_steps=8 format=3 uid="uid://dgeackiuu2bov"]
 
 [ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_pw7td"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rcgyx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usdpu"]
+render_priority = 0
+shader = ExtResource("2_pw7td")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_rcgyx")
 
 [sub_resource type="PrismMesh" id="PrismMesh_pdw7a"]
 
@@ -14,6 +23,7 @@ other_portal = NodePath(".")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
 layers = 8
+material_override = SubResource("ShaderMaterial_usdpu")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
