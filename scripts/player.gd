@@ -9,6 +9,11 @@ var maxLookAngle : float = 90.0
 var lookSensitivity : float = 10.0
 var camera: Camera3D
 var mouseDelta : Vector2 = Vector2()
+@onready var interaction = $Camera3D/RayCast3D
+@onready var hand = $Camera3D/Node3D
+
+var pickedObject: RigidBody3D
+var pullPower = 4
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
@@ -35,6 +40,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	if pickedObject != null:
+		var a = pickedObject.global_transform.origin
+		var b = hand.global_transform.origin
+		pickedObject.apply_central_impulse((b-a))
 
 func _process(delta):
 	camera.rotation_degrees.x -= mouseDelta.y * lookSensitivity * delta
@@ -45,3 +55,17 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		mouseDelta = event.relative
+	if Input.is_action_just_pressed("l_click"):
+		if pickedObject == null:
+			pick_object()
+		else:
+			drop_object()
+
+func pick_object():
+	var collider = interaction.get_collider()
+	if collider != null and collider is RigidBody3D:
+		pickedObject = collider
+		
+func drop_object():
+	if pickedObject != null:
+		pickedObject = null
