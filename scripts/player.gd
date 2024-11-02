@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		var hand_object_lenght = (b - a).length() - base_len
 		var sigmoid = 1 / (1 + exp(-hand_object_lenght))
 		
-		var clamped_length = clamp(hand_object_lenght, min_val, max_val)
+		var clamped_length = clamp(sigmoid, min_val, max_val)
 		#print(clamped_length)
 		
 		pickedObject.linear_velocity = pickedObject.linear_velocity * clamped_length
@@ -81,9 +81,6 @@ func pick_object():
 	#var collider = interaction.get_collider()
 	print(shapeCast.get_collision_count())
 	
-	var min_length_collider = null;
-	var min_length = 10000.0
-	var hand_position = $Camera3D.position
 	for i in range(shapeCast.get_collision_count()-1, -1, -1):
 		var collider = shapeCast.get_collider(i)
 		if collider is RigidBody3D:

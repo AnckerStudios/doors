@@ -16,7 +16,7 @@ func _ready():
 	
 	box.material_override.set_shader_parameter("texture_albedo", viewport.get_texture())
 	box.set_layer_mask_value(1, false)
-	box.set_layer_mask_value(cull_layer, true)
+	box.set_layer_mask_value(cull_layer, false)
 	
 	portal_camera.set_cull_mask_value(other_portal.cull_layer, false)
 	

@@ -4,13 +4,13 @@
 [ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_pw7td"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ad7ye"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tp712"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s35ut"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffer8"]
 render_priority = 0
 shader = ExtResource("2_pw7td")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_ad7ye")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_tp712")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvuih"]
 
@@ -18,13 +18,14 @@ shader_parameter/texture_albedo = SubResource("ViewportTexture_ad7ye")
 
 [sub_resource type="BoxMesh" id="BoxMesh_qidfs"]
 
-[node name="Door" type="RigidBody3D"]
+[node name="Door" type="RigidBody3D" node_paths=PackedStringArray("other_portal")]
 script = ExtResource("1_fi1y0")
+other_portal = NodePath(".")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
 layers = 8
-material_override = SubResource("ShaderMaterial_s35ut")
+material_override = SubResource("ShaderMaterial_ffer8")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
