@@ -3,7 +3,7 @@ extends RigidBody3D
 
 @onready var viewport : SubViewport = $SubViewport
 @onready var portal_camera : Camera3D = $SubViewport/Camera3D
-@onready var box : CSGBox3D = $CSGBox3D
+@onready var box : MeshInstance3D = $MeshInstance3D3
 
 @export var other_portal : Node3D = self;
 @export var cull_layer : int = 4
@@ -16,7 +16,7 @@ func _ready():
 	
 	box.material_override.set_shader_parameter("texture_albedo", viewport.get_texture())
 	box.set_layer_mask_value(1, false)
-	box.set_layer_mask_value(cull_layer, false)
+	box.set_layer_mask_value(cull_layer, true)
 	
 	portal_camera.set_cull_mask_value(other_portal.cull_layer, false)
 	
