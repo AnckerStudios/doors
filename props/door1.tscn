@@ -1,37 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgeackiuu2bov"]
+[gd_scene load_steps=9 format=3 uid="uid://dgeackiuu2bov"]
 
 [ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
 [ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_pw7td"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_md5tt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ad7ye"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_26l3d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s35ut"]
 render_priority = 0
 shader = ExtResource("2_pw7td")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_md5tt")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_ad7ye")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvuih"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_pdw7a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qidfs"]
 
-[node name="Door" type="Area3D" node_paths=PackedStringArray("other_portal")]
+[node name="Door" type="RigidBody3D"]
 script = ExtResource("1_fi1y0")
-other_portal = NodePath(".")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
 layers = 8
-material_override = SubResource("ShaderMaterial_26l3d")
+material_override = SubResource("ShaderMaterial_s35ut")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
 cull_mask = 1048567
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_nvuih")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.43334, 0)

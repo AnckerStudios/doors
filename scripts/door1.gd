@@ -1,5 +1,5 @@
 @tool
-extends Area3D
+extends RigidBody3D
 
 @onready var viewport : SubViewport = $SubViewport
 @onready var portal_camera : Camera3D = $SubViewport/Camera3D

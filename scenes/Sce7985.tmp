@@ -58,7 +58,3 @@ cull_layer = 3
 [node name="Door2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("1_ix44n")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.31671, 1.81944, -8.0477)
 other_portal = NodePath("../Door")
-
-[node name="TestCube3" parent="." instance=ExtResource("6_igut6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42729, -3.52585)
-color = "Red"

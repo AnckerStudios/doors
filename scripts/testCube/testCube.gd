@@ -8,7 +8,7 @@ var path_dict = {"Blue": 'testCube_blue', "Red": 'testCube_red', "Green": 'testC
 		change_color()
 
 #func _ready() -> void:
-	#change_color()
+#	print(self.scale)
 
 
 func change_color() -> void:
