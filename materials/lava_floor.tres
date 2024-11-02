@@ -6,5 +6,6 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_qjlrc")
-shader_parameter/scale = 15.0
+shader_parameter/scale_repeat = 5.0
+shader_parameter/uv_scale = Vector2(3, 2)
 shader_parameter/base_texture = ExtResource("2_irde5")

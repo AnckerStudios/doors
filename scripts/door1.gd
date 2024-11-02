@@ -18,7 +18,16 @@ func _ready():
 	box.set_layer_mask_value(1, false)
 	box.set_layer_mask_value(cull_layer, true)
 	
+	portal_camera.fov = get_viewport().get_camera_3d().fov
 	portal_camera.set_cull_mask_value(other_portal.cull_layer, false)
+	
+	viewport.size = get_viewport().get_visible_rect().size
+	viewport.msaa_3d = get_viewport().msaa_3d
+	viewport.screen_space_aa = get_viewport().screen_space_aa
+	viewport.use_taa = get_viewport().use_taa
+	viewport.use_debanding = get_viewport().use_debanding
+	viewport.use_occlusion_culling = get_viewport().use_occlusion_culling
+	viewport.mesh_lod_threshold = get_viewport().mesh_lod_threshold
 	
 
 func _update_camera_to_other_portal():
@@ -30,17 +39,8 @@ func _update_camera_to_other_portal():
 	var player_camera_relative_to_portal_transform : Transform3D = self.global_transform.affine_inverse() * player_camera.global_transform
 	
 	portal_camera.global_transform = other_portal.global_transform * player_camera_relative_to_portal_transform
-	portal_camera.fov = player_camera.fov
 	
-	portal_camera.cull_mask = player_camera.cull_mask
-	
-	viewport.size = get_viewport().get_visible_rect().size
-	viewport.msaa_3d = get_viewport().msaa_3d
-	viewport.screen_space_aa = get_viewport().screen_space_aa
-	viewport.use_taa = get_viewport().use_taa
-	viewport.use_debanding = get_viewport().use_debanding
-	viewport.use_occlusion_culling = get_viewport().use_occlusion_culling
-	viewport.mesh_lod_threshold = get_viewport().mesh_lod_threshold
+	#portal_camera.cull_mask = player_camera.cull_mask
 	
 func _process(_delta):
 		_update_camera_to_other_portal()

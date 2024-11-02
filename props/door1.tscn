@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgeackiuu2bov"]
+[gd_scene load_steps=10 format=3 uid="uid://dgeackiuu2bov"]
 
 [ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_8dpci"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
-[ext_resource type="Material" uid="uid://ig32uvo4gmbn" path="res://materials/cameraViewportMaterial.tres" id="3_rgqqw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cvjr6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8hds"]
+render_priority = 0
+shader = ExtResource("2_8dpci")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_cvjr6")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5xtkw"]
 
@@ -18,15 +26,15 @@ other_portal = NodePath(".")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
-layers = 0
-material_override = ExtResource("3_rgqqw")
+layers = 8
+material_override = SubResource("ShaderMaterial_a8hds")
 mesh = SubResource("BoxMesh_5xtkw")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 cull_mask = 1048567
 current = true
 

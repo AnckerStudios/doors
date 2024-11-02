@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpbg0kiuurhsj"
-path.s3tc="res://.godot/imported/parallax-albedo.png-52b791de9be3f525ac918eaa1afed607.s3tc.ctex"
+path="res://.godot/imported/parallax-albedo.png-52b791de9be3f525ac918eaa1afed607.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/parallax-albedo.png"
-dest_files=["res://.godot/imported/parallax-albedo.png-52b791de9be3f525ac918eaa1afed607.s3tc.ctex"]
+dest_files=["res://.godot/imported/parallax-albedo.png-52b791de9be3f525ac918eaa1afed607.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -1,11 +1,11 @@
 shader_type spatial;
 uniform sampler2D base_texture : source_color;
-uniform float scale = 1.0;
+uniform float scale_repeat = 1.0;
+uniform vec2 uv_scale = vec2(3.0, 2.0);
 void vertex() {
 }
 
 void fragment() {
-	vec2 uv = vec2(UV.x, UV.y);
-	ALBEDO = texture(base_texture, uv * scale).xyz;
+	ALBEDO = texture(base_texture, UV * scale_repeat * uv_scale).xyz;
 }
 
