@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5jmokwedvbox"]
+
+[ext_resource type="PackedScene" uid="uid://050tcius20mj" path="res://levels/TestScene.tscn" id="1_xme74"]
+[ext_resource type="PackedScene" uid="uid://du602qgfx8elf" path="res://props/testCube/testCube.tscn" id="3_kmqts"]
+[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="4_klp2f"]
+[ext_resource type="PackedScene" uid="uid://bctodqvglsyob" path="res://props/testPlayer/testPlayer.tscn" id="4_npdxf"]
+
+[node name="TestScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 7, 0)
+shadow_enabled = true
+
+[node name="TestScene" parent="." instance=ExtResource("1_xme74")]
+
+[node name="TestCube" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
+color = "Red"
+
+[node name="TestCube8" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -8)
+color = "Red"
+
+[node name="TestCube9" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -20)
+color = "Green"
+
+[node name="TestCube6" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 5)
+
+[node name="TestCube7" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -3)
+color = "Green"
+
+[node name="TestCube2" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 4)
+color = "Red"
+
+[node name="TestCube3" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 4)
+color = "Red"
+
+[node name="TestCube4" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, -4)
+color = "Green"
+
+[node name="TestCube5" parent="." instance=ExtResource("3_kmqts")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, -4)
+color = "Green"
+
+[node name="DoorFrameCube004" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0453053, -0.999499, -4.34855)
+mesh = ExtResource("4_klp2f")
+
+[node name="TestPlayer" parent="." instance=ExtResource("4_npdxf")]
