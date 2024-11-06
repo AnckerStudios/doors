@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/testCube/testCube.gd" id="1_ci8b4"]
 
+[ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="2_wd8d6"]
+[ext_resource type="PackedScene" uid="uid://bqg57lx1wbgnu" path="res://utils/Gravity.tscn" id="3_55iyh"]
+
+
 [sub_resource type="BoxMesh" id="BoxMesh_0ws65"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_677hm"]
@@ -17,4 +21,10 @@ mesh = SubResource("BoxMesh_0ws65")
 surface_material_override/0 = SubResource("StandardMaterial3D_677hm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+shape = SubResource("BoxShape3D_b8kgl")
+
+[node name="Gravity" parent="." instance=ExtResource("3_55iyh")]
+
+
 shape = SubResource("BoxShape3D_b8kgl")
