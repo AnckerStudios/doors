@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8o6xcbi6tguo"
-path.s3tc="res://.godot/imported/tilefloor.png-9ad5ed83d962d77269be9cb043747b51.s3tc.ctex"
+path="res://.godot/imported/tilefloor.png-9ad5ed83d962d77269be9cb043747b51.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/tilefloor.png"
-dest_files=["res://.godot/imported/tilefloor.png-9ad5ed83d962d77269be9cb043747b51.s3tc.ctex"]
+dest_files=["res://.godot/imported/tilefloor.png-9ad5ed83d962d77269be9cb043747b51.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

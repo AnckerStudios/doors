@@ -1,33 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://du602qgfx8elf"]
+[gd_scene load_steps=5 format=3 uid="uid://du602qgfx8elf"]
 
-[ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="1_2o7vo"]
 [ext_resource type="Script" path="res://scripts/testCube/testCube.gd" id="1_ci8b4"]
-<<<<<<< Updated upstream
-=======
+
 [ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="2_wd8d6"]
 [ext_resource type="PackedScene" uid="uid://bqg57lx1wbgnu" path="res://utils/Gravity.tscn" id="3_55iyh"]
->>>>>>> Stashed changes
 
-[sub_resource type="BoxMesh" id="BoxMesh_8fgc8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iml5o"]
-albedo_texture = ExtResource("1_2o7vo")
+[sub_resource type="BoxMesh" id="BoxMesh_0ws65"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_677hm"]
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yo6u2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8kgl"]
 
 [node name="TestCube" type="RigidBody3D"]
 script = ExtResource("1_ci8b4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_8fgc8")
-surface_material_override/0 = SubResource("StandardMaterial3D_iml5o")
+mesh = SubResource("BoxMesh_0ws65")
+surface_material_override/0 = SubResource("StandardMaterial3D_677hm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-<<<<<<< Updated upstream
-shape = SubResource("BoxShape3D_yo6u2")
-=======
+
 shape = SubResource("BoxShape3D_b8kgl")
 
 [node name="Gravity" parent="." instance=ExtResource("3_55iyh")]
->>>>>>> Stashed changes
+
+
+shape = SubResource("BoxShape3D_b8kgl")

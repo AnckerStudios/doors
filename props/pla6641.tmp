@@ -7,7 +7,6 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5182b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yfjey"]
-size = Vector3(0.5, 0.8, 1.8)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_cdl6y")
@@ -20,16 +19,14 @@ mesh = SubResource("CapsuleMesh_5182b")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
-fov = 85.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0, 0)
-visible = false
 target_position = Vector3(0, 0, -5)
 
 [node name="Node3D" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1.2)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 4, 0, 2, -3)
 shape = SubResource("BoxShape3D_yfjey")

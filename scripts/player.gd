@@ -10,6 +10,7 @@ var lookSensitivity : float = 10.0
 var camera: Camera3D
 var mouseDelta : Vector2 = Vector2()
 @onready var interaction = $Camera3D/RayCast3D
+@onready var  shapeCast : ShapeCast3D = $Camera3D/ShapeCast3D
 @onready var hand = $Camera3D/Node3D
 
 var pickedObject: RigidBody3D
@@ -44,6 +45,19 @@ func _physics_process(delta: float) -> void:
 	if pickedObject != null:
 		var a = pickedObject.global_transform.origin
 		var b = hand.global_transform.origin
+		
+		var base_len = 0.16
+		var min_val = 0.0;
+		var max_val = 0.65
+		
+		var hand_object_lenght = (b - a).length() - base_len
+		var sigmoid = 1 / (1 + exp(-hand_object_lenght))
+		
+		var clamped_length = clamp(sigmoid, min_val, max_val)
+		#print(clamped_length)
+		
+		pickedObject.linear_velocity = pickedObject.linear_velocity * clamped_length
+		
 		pickedObject.apply_central_impulse((b-a))
 
 func _process(delta):
@@ -55,16 +69,23 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		mouseDelta = event.relative
-	if Input.is_action_just_pressed("l_click"):
+	if Input.is_action_pressed("l_click"):
 		if pickedObject == null:
 			pick_object()
-		else:
+			
+	if Input.is_action_just_released("l_click"):
+		if pickedObject != null:
 			drop_object()
 
 func pick_object():
-	var collider = interaction.get_collider()
-	if collider != null and collider is RigidBody3D:
-		pickedObject = collider
+	#var collider = interaction.get_collider()
+	print(shapeCast.get_collision_count())
+	
+	for i in range(shapeCast.get_collision_count()-1, -1, -1):
+		var collider = shapeCast.get_collider(i)
+		if collider is RigidBody3D:
+			pickedObject = collider
+		
 		
 func drop_object():
 	if pickedObject != null:
