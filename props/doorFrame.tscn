@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://y70i8rwwjm7k"]
+
+[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="1_vhcmd"]
+
+[node name="DoorFrame" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_vhcmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
