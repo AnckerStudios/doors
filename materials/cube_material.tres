@@ -1,10 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://4mvyk7pyms40"]
 
-[ext_resource type="Shader" path="res://shaders/baseShader.gdshader" id="1_asmqx"]
+[ext_resource type="Shader" path="res://shaders/plane_cut_shader.gdshader" id="1_nkqtb"]
 [ext_resource type="Texture2D" uid="uid://djh47g2bxjj0c" path="res://textures/testCube/testCube_red.png" id="2_psi8l"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_asmqx")
+shader = ExtResource("1_nkqtb")
+shader_parameter/scale_repeat = 1.0
 shader_parameter/uv_scale = Vector2(3, 2)
 shader_parameter/base_texture = ExtResource("2_psi8l")

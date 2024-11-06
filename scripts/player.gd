@@ -4,13 +4,13 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var minLookAngle : float = -90.0
-var maxLookAngle : float = 90.0
-var lookSensitivity : float = 10.0
+var minLookAngle: float = -90.0
+var maxLookAngle: float = 90.0
+var lookSensitivity: float = 10.0
 var camera: Camera3D
-var mouseDelta : Vector2 = Vector2()
+var mouseDelta: Vector2 = Vector2()
 @onready var interaction = $Camera3D/RayCast3D
-@onready var  shapeCast : ShapeCast3D = $Camera3D/ShapeCast3D
+@onready var  shapeCast: ShapeCast3D = $Camera3D/ShapeCast3D
 @onready var hand = $Camera3D/Node3D
 
 var pickedObject: RigidBody3D

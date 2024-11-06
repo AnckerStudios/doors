@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw8eg3gfdcom1"]
+
+[ext_resource type="Script" path="res://scripts/testCube/testCube.gd" id="1_456k4"]
+[ext_resource type="Shader" path="res://shaders/baseShader.gdshader" id="2_axh2a"]
+[ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="2_p38y4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mkkl"]
+render_priority = 0
+shader = ExtResource("2_axh2a")
+shader_parameter/scale_repeat = 1.0
+shader_parameter/uv_scale = Vector2(3, 2)
+shader_parameter/base_texture = ExtResource("2_p38y4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_novi1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8kgl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wl8em"]
+
+[node name="TestCube" type="RigidBody3D"]
+script = ExtResource("1_456k4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_1mkkl")
+mesh = SubResource("BoxMesh_novi1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_b8kgl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118602, 1.09299, 0)
+mesh = SubResource("BoxMesh_wl8em")
