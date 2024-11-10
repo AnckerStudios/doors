@@ -3,28 +3,54 @@ extends Area3D
 
 var close_object_dict: Dictionary = {}
 
-var normal_vector: Vector3 = Vector3(0, 0, 1)
-@export var parent_rotation: Vector3 = Vector3(0, 0, 0)
-
 func _ready():
 	connect("body_entered", _on_area_body_entered)
 	connect("body_exited", _on_area_body_exited)
 	
 func _process(delta):
-	print(parent_rotation)
-	normal_vector = normal_vector.rotated(Vector3(1,0,0), parent_rotation[0])
-	print(normal_vector)
+	#print(-get_parent().global_transform.basis.z)
+	
 	pass
 func _physics_process(delta):
-	
+	var portal_position = get_parent().global_transform.origin
+	var portal_normal_forward = -get_parent().global_transform.basis.z
+	for key in close_object_dict.keys():
+		var portal_normal_to_object = portal_normal_forward * close_object_dict.get(key)
+		key.update_shader_parameters(portal_position, portal_normal_to_object)
 	pass
 	
 func _on_area_body_entered(body: PhysicsBody3D) -> void:
-	print("entered")
+	#print("entered")
 	
-	close_object_dict.get_or_add(body, -1)
+	if not "implements" in body:
+		return
+	if not body.implements == Interface.Portable:
+		return
+	
+	var portal_origin: Vector3 = get_parent().global_transform.origin
+	var body_origin: Vector3 = body.global_transform.origin
+	var portal_to_body_vector: Vector3 = body_origin - portal_origin;
+	
+	var portal_forward_vector: Vector3 = -get_parent().global_transform.basis.z
+	
+	var is_on_same_side = 1
+	if portal_forward_vector.dot(portal_to_body_vector) < 0:
+		is_on_same_side = -1
+		
+	close_object_dict.get_or_add(body, is_on_same_side)
+	#print(portal_to_body_vector)
+	
 	pass
 
 func _on_area_body_exited(body: PhysicsBody3D) -> void:
-	print("exited")
+	#print("exited")
+	if not "implements" in body:
+		return
+	if not body.implements == Interface.Portable:
+		return
+	body.update_shader_parameters(Vector3(0.0, 0.0, 0.0), Vector3(0.0, 0.0, 0.0))
+	close_object_dict.erase(body)
+	
+	#print(close_object_dict.keys())
+	
 	pass

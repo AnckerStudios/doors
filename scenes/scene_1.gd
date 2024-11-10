@@ -8,3 +8,13 @@ func _input(event):
 func _ready():
 	$Door.other_portal = $Door2
 	$Door2.other_portal = $Door
+	
+	$Door.cull_layer = 6
+	$Door2.cull_layer = 8
+	
+	var depth = 6
+	$Door.depth = depth
+	$Door2.depth = depth
+	
+	$Player/Camera3D.set_cull_mask_value($Door.cull_layer + 1, false)
+	$Player/Camera3D.set_cull_mask_value($Door2.cull_layer + 1, false)

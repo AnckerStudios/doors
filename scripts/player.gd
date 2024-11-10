@@ -69,7 +69,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		mouseDelta = event.relative
-	if Input.is_action_pressed("l_click"):
+	if Input.is_action_just_pressed("l_click"):
 		if pickedObject == null:
 			pick_object()
 			
@@ -79,7 +79,7 @@ func _input(event):
 
 func pick_object():
 	#var collider = interaction.get_collider()
-	print(shapeCast.get_collision_count())
+	#print(shapeCast.get_collision_count())
 	
 	for i in range(shapeCast.get_collision_count()-1, -1, -1):
 		var collider = shapeCast.get_collider(i)

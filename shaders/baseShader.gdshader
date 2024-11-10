@@ -8,4 +8,3 @@ void vertex() {
 void fragment() {
 	ALBEDO = texture(base_texture, UV * scale_repeat * uv_scale).xyz;
 }
-

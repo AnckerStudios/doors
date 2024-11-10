@@ -1,25 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgeackiuu2bov"]
+[gd_scene load_steps=15 format=3 uid="uid://dgeackiuu2bov"]
 
 [ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
-[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_8dpci"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_ml7k5"]
 [ext_resource type="Script" path="res://props/portal_area.gd" id="2_u2g2f"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
+[ext_resource type="Material" uid="uid://d12rvmqtmlg1d" path="res://materials/green_screen_material.tres" id="3_7fyvu"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4xdww"]
-size = Vector3(2, 2, 5)
+[sub_resource type="ViewportTexture" id="ViewportTexture_yamh5"]
+viewport_path = NodePath("SubViewport1")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hk2xr"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_wie3w"]
+viewport_path = NodePath("SubViewport2")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqajl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_08tvo"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc2hr"]
 render_priority = 0
-shader = ExtResource("2_8dpci")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_hk2xr")
+shader = ExtResource("2_ml7k5")
+shader_parameter/array_length = 3
+shader_parameter/textures = [SubResource("ViewportTexture_yamh5"), SubResource("ViewportTexture_wie3w"), SubResource("ViewportTexture_08tvo")]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5xtkw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nvuih"]
-size = Vector3(1, 2.5, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xdww"]
+size = Vector3(1, 2, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ea27o"]
+size = Vector3(1, 0.1, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_pdw7a"]
 
@@ -27,7 +35,18 @@ size = Vector3(1, 2.5, 1)
 
 [node name="Door" type="RigidBody3D" node_paths=PackedStringArray("other_portal")]
 script = ExtResource("1_fi1y0")
+depth = 0
 other_portal = NodePath(".")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_fc2hr")
+mesh = SubResource("BoxMesh_5xtkw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("3_7fyvu")
+mesh = SubResource("BoxMesh_5xtkw")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("2_u2g2f")
@@ -35,23 +54,30 @@ script = ExtResource("2_u2g2f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_4xdww")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
-layers = 8
-material_override = SubResource("ShaderMaterial_aqajl")
-mesh = SubResource("BoxMesh_5xtkw")
+[node name="SubViewport1" type="SubViewport" parent="."]
+size = Vector2i(2, 2)
 
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1024, 1024)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
-cull_mask = 1048567
+current = true
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+size = Vector2i(2, 2)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+current = true
+
+[node name="SubViewport3" type="SubViewport" parent="."]
+size = Vector2i(2, 2)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-shape = SubResource("BoxShape3D_nvuih")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_ea27o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.43334, 0)
