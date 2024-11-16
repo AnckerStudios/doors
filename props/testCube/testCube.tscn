@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="2_83pip"]
 [ext_resource type="Shader" path="res://shaders/baseShader.gdshader" id="2_p36m4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4h48"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01q8x"]
 render_priority = 0
 shader = ExtResource("2_p36m4")
 shader_parameter/scale_repeat = 1.0
@@ -22,7 +22,7 @@ uv1_scale = Vector3(3, 2, 1)
 script = ExtResource("1_ci8b4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_g4h48")
+material_override = SubResource("ShaderMaterial_01q8x")
 mesh = SubResource("BoxMesh_0ws65")
 surface_material_override/0 = SubResource("StandardMaterial3D_677hm")
 

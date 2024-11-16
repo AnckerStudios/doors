@@ -6,6 +6,7 @@ func _input(event):
 			get_tree().quit()
 
 func _ready():
+	#Engine.max_fps = 2
 	$Door.other_portal = $Door2
 	$Door2.other_portal = $Door
 	

@@ -8,4 +8,6 @@ render_priority = 0
 shader = ExtResource("1_nkqtb")
 shader_parameter/scale_repeat = 1.0
 shader_parameter/uv_scale = Vector2(3, 2)
+shader_parameter/plane_position = Vector3(0, 0, 0)
+shader_parameter/plane_normal = Vector3(0, 0, 0)
 shader_parameter/base_texture = ExtResource("2_psi8l")

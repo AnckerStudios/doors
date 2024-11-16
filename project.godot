@@ -21,8 +21,7 @@ Interface="*res://interface.gd"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1000
+window/size/initial_position_type=3
 
 [editor]
 
