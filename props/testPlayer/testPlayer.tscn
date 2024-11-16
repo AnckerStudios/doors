@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bctodqvglsyob"]
+[gd_scene load_steps=6 format=3 uid="uid://bctodqvglsyob"]
 
 [ext_resource type="Script" path="res://scripts/test_player.gd" id="1_auul7"]
 [ext_resource type="PackedScene" uid="uid://bkqfwvr84t1o1" path="res://models/player_with_animation_3.glb" id="2_cf254"]
+[ext_resource type="Script" path="res://props/testPlayer/ray_cast_3d.gd" id="3_nrojp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oo1b6"]
 
@@ -106,9 +107,9 @@ playback_default_blend_time = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68117, -0.23844)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.42, 0, 0, 0)
 target_position = Vector3(0, 0, -5)
+script = ExtResource("3_nrojp")
 
 [node name="Node3D" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

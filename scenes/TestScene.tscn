@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5jmokwedvbox"]
+[gd_scene load_steps=10 format=3 uid="uid://b5jmokwedvbox"]
 
 [ext_resource type="PackedScene" uid="uid://050tcius20mj" path="res://levels/TestScene.tscn" id="1_xme74"]
-[ext_resource type="PackedScene" uid="uid://du602qgfx8elf" path="res://props/testCube/testCube.tscn" id="3_kmqts"]
-[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="4_klp2f"]
 [ext_resource type="PackedScene" uid="uid://bctodqvglsyob" path="res://props/testPlayer/testPlayer.tscn" id="4_npdxf"]
+[ext_resource type="PackedScene" uid="uid://co3b4llp57o1b" path="res://props/doors/BaseDoor.tscn" id="4_p4q7r"]
+[ext_resource type="PackedScene" uid="uid://bqvkcx7jesj2t" path="res://props/itemBase/itemBase.tscn" id="5_c0jup"]
+[ext_resource type="Shader" path="res://shaders/sky.gdshader" id="5_yigl3"]
+[ext_resource type="Texture2D" uid="uid://dd4vv6mfeu4xd" path="res://textures/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="6_h2ngc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e43p7"]
+shader = ExtResource("5_yigl3")
+shader_parameter/skyTexture = ExtResource("6_h2ngc")
+
+[sub_resource type="Sky" id="Sky_ex0ls"]
+sky_material = SubResource("ShaderMaterial_e43p7")
+
+[sub_resource type="Environment" id="Environment_8e3nx"]
+background_mode = 2
+sky = SubResource("Sky_ex0ls")
 
 [node name="TestScene" type="Node3D"]
 
@@ -13,43 +26,40 @@ shadow_enabled = true
 
 [node name="TestScene" parent="." instance=ExtResource("1_xme74")]
 
-[node name="TestCube" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
-color = "Red"
-
-[node name="TestCube8" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -8)
-color = "Red"
-
-[node name="TestCube9" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -20)
-color = "Green"
-
-[node name="TestCube6" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 5)
-
-[node name="TestCube7" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -3)
-color = "Green"
-
-[node name="TestCube2" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 4)
-color = "Red"
-
-[node name="TestCube3" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 4)
-color = "Red"
-
-[node name="TestCube4" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, -4)
-color = "Green"
-
-[node name="TestCube5" parent="." instance=ExtResource("3_kmqts")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, -4)
-color = "Green"
-
-[node name="DoorFrameCube004" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0453053, -0.999499, -4.34855)
-mesh = ExtResource("4_klp2f")
-
 [node name="TestPlayer" parent="." instance=ExtResource("4_npdxf")]
+
+[node name="ItemBase" parent="." instance=ExtResource("5_c0jup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 1.98362, -11.6166)
+mass = 1.693
+gravity = Vector3(0, -6, 0)
+
+[node name="ItemBase2" parent="." instance=ExtResource("5_c0jup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, -0.441412, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase3" parent="." instance=ExtResource("5_c0jup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 0.627518, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase4" parent="." instance=ExtResource("5_c0jup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 1.7063, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase5" parent="." instance=ExtResource("5_c0jup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 2.76637, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="BaseDoor" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("4_p4q7r")]
+transform = Transform3D(1.00261, 0, 0, 0, 1.00261, 0, 0, 0, 1.00261, 0, -0.998392, -5.74665)
+other_portal = NodePath("../BaseDoor2")
+
+[node name="BaseDoor2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("4_p4q7r")]
+transform = Transform3D(-0.888913, 0, 0.458076, 0, 1, 0, -0.458076, 0, -0.888913, -4.21719, -0.9995, 0.519868)
+other_portal = NodePath("../BaseDoor")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8e3nx")
