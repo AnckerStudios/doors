@@ -4,13 +4,13 @@
 [ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_8dpci"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_otcny"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ni2d1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm126"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihmmf"]
 render_priority = 0
 shader = ExtResource("2_8dpci")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_otcny")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_ni2d1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5xtkw"]
 
@@ -27,7 +27,7 @@ other_portal = NodePath(".")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 0, 0)
 layers = 8
-material_override = SubResource("ShaderMaterial_cm126")
+material_override = SubResource("ShaderMaterial_ihmmf")
 mesh = SubResource("BoxMesh_5xtkw")
 
 [node name="SubViewport" type="SubViewport" parent="."]

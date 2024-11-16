@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqvkcx7jesj2t"]
+
+[ext_resource type="Script" path="res://props/itemBase/item_base.gd" id="1_4nxls"]
+[ext_resource type="Texture2D" uid="uid://djh47g2bxjj0c" path="res://textures/testCube/testCube_red.png" id="1_fpg0l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkofi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmbko"]
+albedo_texture = ExtResource("1_fpg0l")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_qx70q"]
+material = SubResource("StandardMaterial3D_pmbko")
+
+[node name="ItemBase" type="RigidBody3D"]
+script = ExtResource("1_4nxls")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kkofi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qx70q")
