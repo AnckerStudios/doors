@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://co3b4llp57o1b"]
+
+[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="1_kdvm8"]
+[ext_resource type="Script" path="res://props/doors/door_new.gd" id="1_nfkcb"]
+[ext_resource type="Script" path="res://props/doors/base_door.gd" id="1_ws2lr"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="3_5r6qr"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dxt0s"]
+data = PackedVector3Array(-1.5, 0, 0.3, -1.5, 4.5, -0.3, -1.5, 4.5, 0.3, -1.5, 0, 0.3, -1.5, 0, -0.3, -1.5, 4.5, -0.3, 1.5, 0, -0.3, 1.5, 4.5, 0.3, 1.5, 4.5, -0.3, 1.5, 0, -0.3, 1.5, 0, 0.3, 1.5, 4.5, 0.3, 1.15, 0, -0.3, 1.5, 0, 0.3, 1.5, 0, -0.3, 1.15, 0, -0.3, 1.15, 0, 0.3, 1.5, 0, 0.3, 1.5, 4.5, -0.3, -1.5, 4.5, 0.3, -1.5, 4.5, -0.3, 1.5, 4.5, -0.3, 1.5, 4.5, 0.3, -1.5, 4.5, 0.3, -1.15, 0, -0.3, -1.15, 4.15, -0.18, -1.15, 4.15, -0.3, -1.15, 0, -0.3, -1.15, 0, -0.18, -1.15, 4.15, -0.18, 1.15, 0, 0.3, 1.15, 4.15, 0.18, 1.15, 4.15, 0.3, 1.15, 0, 0.3, 1.15, 0, 0.18, 1.15, 4.15, 0.18, 1.15, 0, -0.3, 1.15, 0, 0.18, 1.15, 0, 0.3, 1.15, 0, -0.3, 1.15, 0, -0.18, 1.15, 0, 0.18, -1.15, 4.15, -0.3, 1.15, 4.15, -0.18, 1.15, 4.15, -0.3, -1.15, 4.15, -0.3, -1.15, 4.15, -0.18, 1.15, 4.15, -0.18, -1.15, 4.15, 0.3, -1.15, 0, 0.18, -1.15, 0, 0.3, -1.15, 4.15, 0.3, -1.15, 4.15, 0.18, -1.15, 0, 0.18, 1.15, 4.15, 0.3, -1.15, 4.15, 0.18, -1.15, 4.15, 0.3, 1.15, 4.15, 0.3, 1.15, 4.15, 0.18, -1.15, 4.15, 0.18, -1.15, 0, 0.3, -1.15, 0, -0.18, -1.15, 0, -0.3, -1.15, 0, 0.3, -1.15, 0, 0.18, -1.15, 0, -0.18, -1.5, 0, 0.3, -1.15, 4.15, 0.3, -1.15, 0, 0.3, -1.5, 0, 0.3, -1.5, 4.5, 0.3, -1.15, 4.15, 0.3, -1.5, 0, -0.3, -1.15, 4.15, -0.3, -1.5, 4.5, -0.3, -1.5, 0, -0.3, -1.15, 0, -0.3, -1.15, 4.15, -0.3, 1.5, 4.5, 0.3, -1.15, 4.15, 0.3, -1.5, 4.5, 0.3, 1.5, 4.5, 0.3, 1.15, 4.15, 0.3, -1.15, 4.15, 0.3, 1.5, 0, 0.3, 1.15, 4.15, 0.3, 1.5, 4.5, 0.3, 1.5, 0, 0.3, 1.15, 0, 0.3, 1.15, 4.15, 0.3, -1.5, 0, 0.3, -1.15, 0, -0.3, -1.5, 0, -0.3, -1.5, 0, 0.3, -1.15, 0, 0.3, -1.15, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 0, -0.18, 1.15, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 4.15, -0.18, 1.15, 0, -0.18, 1.5, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 0, -0.3, 1.5, 0, -0.3, 1.5, 4.5, -0.3, 1.15, 4.15, -0.3, -1.5, 4.5, -0.3, 1.15, 4.15, -0.3, 1.5, 4.5, -0.3, -1.5, 4.5, -0.3, -1.15, 4.15, -0.3, 1.15, 4.15, -0.3, -1.15, 4.15, -0.18, 1, 4, -0.18, 1.15, 4.15, -0.18, -1.15, 4.15, -0.18, -1, 4, -0.18, 1, 4, -0.18, 1.15, 0, -0.18, 1, 4, -0.18, 1, 0, -0.18, 1.15, 0, -0.18, 1.15, 4.15, -0.18, 1, 4, -0.18, -1.15, 0, 0.18, -1, 0, -0.18, -1.15, 0, -0.18, -1.15, 0, 0.18, -1, 0, 0.18, -1, 0, -0.18, -1, 0, -0.18, -1, 4, 0.18, -1, 4, -0.18, -1, 0, -0.18, -1, 0, 0.18, -1, 4, 0.18, 1, 4, 0.18, 1, 0, -0.18, 1, 4, -0.18, 1, 4, 0.18, 1, 0, 0.18, 1, 0, -0.18, -1, 4, -0.18, 1, 4, 0.18, 1, 4, -0.18, -1, 4, -0.18, -1, 4, 0.18, 1, 4, 0.18, 1.15, 0, 0.18, 1, 4, 0.18, 1.15, 4.15, 0.18, 1.15, 0, 0.18, 1, 0, 0.18, 1, 4, 0.18, 1.15, 4.15, 0.18, -1, 4, 0.18, -1.15, 4.15, 0.18, 1.15, 4.15, 0.18, 1, 4, 0.18, -1, 4, 0.18, -1.15, 0, -0.18, -1, 4, -0.18, -1.15, 4.15, -0.18, -1.15, 0, -0.18, -1, 0, -0.18, -1, 4, -0.18, -1.15, 0, 0.18, -1, 4, 0.18, -1, 0, 0.18, -1.15, 0, 0.18, -1.15, 4.15, 0.18, -1, 4, 0.18, 1, 0, -0.18, 1.15, 0, 0.18, 1.15, 0, -0.18, 1, 0, -0.18, 1, 0, 0.18, 1.15, 0, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_231ok"]
+size = Vector3(1.4, 2.4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b7sog"]
+size = Vector3(1.4, 2.4, 0.2)
+
+[sub_resource type="Animation" id="Animation_smnul"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.74533, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tq62m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tnux1"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.74533, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hpf4"]
+_data = {
+"RESET": SubResource("Animation_tq62m"),
+"close": SubResource("Animation_tnux1"),
+"open": SubResource("Animation_smnul")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fyj2f"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6cgxu"]
+render_priority = 0
+shader = ExtResource("3_5r6qr")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_fyj2f")
+
+[sub_resource type="QuadMesh" id="QuadMesh_aoihk"]
+size = Vector2(1.4, 2.4)
+
+[node name="BaseDoor" type="Node3D"]
+script = ExtResource("1_nfkcb")
+
+[node name="Frame" type="StaticBody3D" parent="."]
+transform = Transform3D(0.802535, 0, 0, 0, 0.59629, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Frame"]
+transform = Transform3D(0.874254, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_kdvm8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
+transform = Transform3D(0.874254, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_dxt0s")
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1.2, 0)
+
+[node name="Door" type="StaticBody3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+script = ExtResource("1_ws2lr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Door"]
+mesh = SubResource("BoxMesh_231ok")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/Door"]
+shape = SubResource("BoxShape3D_b7sog")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5hpf4")
+}
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+layers = 8
+material_override = SubResource("ShaderMaterial_6cgxu")
+mesh = SubResource("QuadMesh_aoihk")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+cull_mask = 1048567
+current = true
