@@ -15,6 +15,14 @@ run/main_scene="res://scenes/Scene 1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Interface="*res://interface.gd"
+
+[display]
+
+window/size/initial_position_type=3
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
