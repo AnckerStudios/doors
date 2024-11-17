@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dd3y1mjni4kql"]
+
+[ext_resource type="PackedScene" uid="uid://050tcius20mj" path="res://levels/TestScene.tscn" id="1_b7i5m"]
+[ext_resource type="Script" path="res://scenes/scene_1.gd" id="1_mq5nk"]
+[ext_resource type="PackedScene" uid="uid://bw8eg3gfdcom1" path="res://props/testCube/testCubeWithShader.tscn" id="2_0vns4"]
+[ext_resource type="PackedScene" uid="uid://bqvkcx7jesj2t" path="res://props/itemBase/itemBase.tscn" id="3_wrbpv"]
+[ext_resource type="PackedScene" uid="uid://co3b4llp57o1b" path="res://props/doors/BaseDoor.tscn" id="4_psojm"]
+[ext_resource type="Shader" path="res://shaders/sky.gdshader" id="5_hruj7"]
+[ext_resource type="Texture2D" uid="uid://dd4vv6mfeu4xd" path="res://textures/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="6_igmyq"]
+[ext_resource type="PackedScene" uid="uid://dnowu1e2amw8r" path="res://props/player.tscn" id="6_o8wgr"]
+[ext_resource type="PackedScene" uid="uid://k4r1y2py47ao" path="res://props/door1(duplicate).tscn" id="7_avdl6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e43p7"]
+shader = ExtResource("5_hruj7")
+shader_parameter/skyTexture = ExtResource("6_igmyq")
+
+[sub_resource type="Sky" id="Sky_ex0ls"]
+sky_material = SubResource("ShaderMaterial_e43p7")
+
+[sub_resource type="Environment" id="Environment_8e3nx"]
+background_mode = 2
+sky = SubResource("Sky_ex0ls")
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_mq5nk")
+
+[node name="TestCube" parent="." instance=ExtResource("2_0vns4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.29212)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 7, 0)
+shadow_enabled = true
+
+[node name="TestScene" parent="." instance=ExtResource("1_b7i5m")]
+
+[node name="ItemBase" parent="." instance=ExtResource("3_wrbpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 1.98362, -11.6166)
+mass = 1.693
+gravity = Vector3(0, -6, 0)
+
+[node name="ItemBase2" parent="." instance=ExtResource("3_wrbpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, -0.441412, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase3" parent="." instance=ExtResource("3_wrbpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 0.627518, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase4" parent="." instance=ExtResource("3_wrbpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 1.7063, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="ItemBase5" parent="." instance=ExtResource("3_wrbpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42911, 2.76637, -13.3697)
+mass = 1.693
+gravity = Vector3(0, 0, 0)
+
+[node name="BaseDoor" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("4_psojm")]
+transform = Transform3D(1.00261, 0, 0, 0, 1.00261, 0, 0, 0, 1.00261, 0, -0.998392, -5.74665)
+other_portal = NodePath("../BaseDoor2")
+
+[node name="BaseDoor2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("4_psojm")]
+transform = Transform3D(-0.888913, 0, 0.458076, 0, 1, 0, -0.458076, 0, -0.888913, -4.21719, -0.9995, 0.519868)
+other_portal = NodePath("../BaseDoor")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8e3nx")
+
+[node name="Player" parent="." instance=ExtResource("6_o8wgr")]
+transform = Transform3D(0.200599, 0, -0.979673, 0, 1, 0, 0.979673, 0, 0.200599, 0, 0, 0)
+
+[node name="Door" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("7_avdl6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.716949, 5.88203)
+other_portal = NodePath("../Door2")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("other_portal") instance=ExtResource("7_avdl6")]
+transform = Transform3D(-0.366891, 0, 0.930264, 0, 1, 0, -0.930264, 0, -0.366891, 4.36494, 1.97643, 0)
+other_portal = NodePath("../Door")

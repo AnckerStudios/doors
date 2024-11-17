@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxa4pomeqc8ai"]
+
+[ext_resource type="Script" path="res://scripts/door1.gd" id="1_fyuyc"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_e1blj"]
+[ext_resource type="Material" uid="uid://d12rvmqtmlg1d" path="res://materials/green_screen_material.tres" id="3_hqchl"]
+[ext_resource type="Script" path="res://props/portal_area.gd" id="4_mrb6f"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yamh5"]
+viewport_path = NodePath("SubViewport1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wie3w"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_08tvo"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc2hr"]
+render_priority = 0
+shader = ExtResource("2_e1blj")
+shader_parameter/array_length = 3
+shader_parameter/textures = [SubResource("ViewportTexture_yamh5"), SubResource("ViewportTexture_wie3w"), SubResource("ViewportTexture_08tvo")]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5xtkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xdww"]
+size = Vector3(1.5, 2.5, 0.2)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_fyuyc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 2.5, 0, 0, 0, 0.15, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_fc2hr")
+mesh = SubResource("BoxMesh_5xtkw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 2.5, 0, 0, 0, 0.15, 0, 0, 0)
+material_override = ExtResource("3_hqchl")
+mesh = SubResource("BoxMesh_5xtkw")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_mrb6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_4xdww")

@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://co3b4llp57o1b"]
+[gd_scene load_steps=14 format=3 uid="uid://dowmnto3rk4me"]
 
-[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="1_kdvm8"]
-[ext_resource type="Script" path="res://props/doors/door_new.gd" id="1_nfkcb"]
-[ext_resource type="Script" path="res://props/doors/base_door.gd" id="1_ws2lr"]
-[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="3_5r6qr"]
+[ext_resource type="Script" path="res://props/doors/door_new.gd" id="1_os52e"]
+[ext_resource type="ArrayMesh" uid="uid://mgpe4ij4m5ag" path="res://meshes/door_frame_Cube_004.res" id="2_ol3q8"]
+[ext_resource type="Script" path="res://props/doors/base_door.gd" id="3_q67pa"]
+[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="4_etpln"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dxt0s"]
 data = PackedVector3Array(-1.5, 0, 0.3, -1.5, 4.5, -0.3, -1.5, 4.5, 0.3, -1.5, 0, 0.3, -1.5, 0, -0.3, -1.5, 4.5, -0.3, 1.5, 0, -0.3, 1.5, 4.5, 0.3, 1.5, 4.5, -0.3, 1.5, 0, -0.3, 1.5, 0, 0.3, 1.5, 4.5, 0.3, 1.15, 0, -0.3, 1.5, 0, 0.3, 1.5, 0, -0.3, 1.15, 0, -0.3, 1.15, 0, 0.3, 1.5, 0, 0.3, 1.5, 4.5, -0.3, -1.5, 4.5, 0.3, -1.5, 4.5, -0.3, 1.5, 4.5, -0.3, 1.5, 4.5, 0.3, -1.5, 4.5, 0.3, -1.15, 0, -0.3, -1.15, 4.15, -0.18, -1.15, 4.15, -0.3, -1.15, 0, -0.3, -1.15, 0, -0.18, -1.15, 4.15, -0.18, 1.15, 0, 0.3, 1.15, 4.15, 0.18, 1.15, 4.15, 0.3, 1.15, 0, 0.3, 1.15, 0, 0.18, 1.15, 4.15, 0.18, 1.15, 0, -0.3, 1.15, 0, 0.18, 1.15, 0, 0.3, 1.15, 0, -0.3, 1.15, 0, -0.18, 1.15, 0, 0.18, -1.15, 4.15, -0.3, 1.15, 4.15, -0.18, 1.15, 4.15, -0.3, -1.15, 4.15, -0.3, -1.15, 4.15, -0.18, 1.15, 4.15, -0.18, -1.15, 4.15, 0.3, -1.15, 0, 0.18, -1.15, 0, 0.3, -1.15, 4.15, 0.3, -1.15, 4.15, 0.18, -1.15, 0, 0.18, 1.15, 4.15, 0.3, -1.15, 4.15, 0.18, -1.15, 4.15, 0.3, 1.15, 4.15, 0.3, 1.15, 4.15, 0.18, -1.15, 4.15, 0.18, -1.15, 0, 0.3, -1.15, 0, -0.18, -1.15, 0, -0.3, -1.15, 0, 0.3, -1.15, 0, 0.18, -1.15, 0, -0.18, -1.5, 0, 0.3, -1.15, 4.15, 0.3, -1.15, 0, 0.3, -1.5, 0, 0.3, -1.5, 4.5, 0.3, -1.15, 4.15, 0.3, -1.5, 0, -0.3, -1.15, 4.15, -0.3, -1.5, 4.5, -0.3, -1.5, 0, -0.3, -1.15, 0, -0.3, -1.15, 4.15, -0.3, 1.5, 4.5, 0.3, -1.15, 4.15, 0.3, -1.5, 4.5, 0.3, 1.5, 4.5, 0.3, 1.15, 4.15, 0.3, -1.15, 4.15, 0.3, 1.5, 0, 0.3, 1.15, 4.15, 0.3, 1.5, 4.5, 0.3, 1.5, 0, 0.3, 1.15, 0, 0.3, 1.15, 4.15, 0.3, -1.5, 0, 0.3, -1.15, 0, -0.3, -1.5, 0, -0.3, -1.5, 0, 0.3, -1.15, 0, 0.3, -1.15, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 0, -0.18, 1.15, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 4.15, -0.18, 1.15, 0, -0.18, 1.5, 0, -0.3, 1.15, 4.15, -0.3, 1.15, 0, -0.3, 1.5, 0, -0.3, 1.5, 4.5, -0.3, 1.15, 4.15, -0.3, -1.5, 4.5, -0.3, 1.15, 4.15, -0.3, 1.5, 4.5, -0.3, -1.5, 4.5, -0.3, -1.15, 4.15, -0.3, 1.15, 4.15, -0.3, -1.15, 4.15, -0.18, 1, 4, -0.18, 1.15, 4.15, -0.18, -1.15, 4.15, -0.18, -1, 4, -0.18, 1, 4, -0.18, 1.15, 0, -0.18, 1, 4, -0.18, 1, 0, -0.18, 1.15, 0, -0.18, 1.15, 4.15, -0.18, 1, 4, -0.18, -1.15, 0, 0.18, -1, 0, -0.18, -1.15, 0, -0.18, -1.15, 0, 0.18, -1, 0, 0.18, -1, 0, -0.18, -1, 0, -0.18, -1, 4, 0.18, -1, 4, -0.18, -1, 0, -0.18, -1, 0, 0.18, -1, 4, 0.18, 1, 4, 0.18, 1, 0, -0.18, 1, 4, -0.18, 1, 4, 0.18, 1, 0, 0.18, 1, 0, -0.18, -1, 4, -0.18, 1, 4, 0.18, 1, 4, -0.18, -1, 4, -0.18, -1, 4, 0.18, 1, 4, 0.18, 1.15, 0, 0.18, 1, 4, 0.18, 1.15, 4.15, 0.18, 1.15, 0, 0.18, 1, 0, 0.18, 1, 4, 0.18, 1.15, 4.15, 0.18, -1, 4, 0.18, -1.15, 4.15, 0.18, 1.15, 4.15, 0.18, 1, 4, 0.18, -1, 4, 0.18, -1.15, 0, -0.18, -1, 4, -0.18, -1.15, 4.15, -0.18, -1.15, 0, -0.18, -1, 0, -0.18, -1, 4, -0.18, -1.15, 0, 0.18, -1, 4, 0.18, -1, 0, 0.18, -1.15, 0, 0.18, -1.15, 4.15, 0.18, -1, 4, 0.18, 1, 0, -0.18, 1.15, 0, 0.18, 1.15, 0, -0.18, 1, 0, -0.18, 1, 0, 0.18, 1.15, 0, 0.18)
@@ -66,9 +66,9 @@ _data = {
 "open": SubResource("Animation_smnul")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqge5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebrsc"]
 render_priority = 0
-shader = ExtResource("3_5r6qr")
+shader = ExtResource("4_etpln")
 shader_parameter/array_length = null
 shader_parameter/textures = null
 
@@ -76,7 +76,7 @@ shader_parameter/textures = null
 size = Vector2(1.4, 2.4)
 
 [node name="BaseDoor" type="Node3D" node_paths=PackedStringArray("other_portal")]
-script = ExtResource("1_nfkcb")
+script = ExtResource("1_os52e")
 other_portal = NodePath(".")
 
 [node name="Frame" type="StaticBody3D" parent="."]
@@ -84,7 +84,7 @@ transform = Transform3D(0.802535, 0, 0, 0, 0.59629, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Frame"]
 transform = Transform3D(0.874254, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("1_kdvm8")
+mesh = ExtResource("2_ol3q8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame"]
 transform = Transform3D(0.874254, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -95,7 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1.2, 0)
 
 [node name="Door" type="StaticBody3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
-script = ExtResource("1_ws2lr")
+script = ExtResource("3_q67pa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Door"]
 mesh = SubResource("BoxMesh_231ok")
@@ -111,7 +111,7 @@ libraries = {
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 layers = 8
-material_override = SubResource("ShaderMaterial_oqge5")
+material_override = SubResource("ShaderMaterial_ebrsc")
 mesh = SubResource("QuadMesh_aoihk")
 
 [node name="SubViewport" type="SubViewport" parent="."]

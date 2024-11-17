@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cieg10kwo3wjq"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_ao4d8"]
-
-[node name="MeshInstance3D" type="MeshInstance3D"]
-mesh = SubResource("QuadMesh_ao4d8")
-
-[node name="Area3D" type="Area3D" parent="."]

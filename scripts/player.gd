@@ -20,6 +20,7 @@ var starting_grab_position
 var current_grab_position
 
 var implements = Interface.Portable
+@export var gravity: Vector3 = Vector3(0, -9.8, 0)
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
@@ -28,7 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():

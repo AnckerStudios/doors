@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://shaders/plane_cut_shader.gdshader" id="2_8om6r"]
 [ext_resource type="Texture2D" uid="uid://emj4xi1d770u" path="res://textures/testCube/testCube_blue.png" id="2_p38y4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sujft"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx78l"]
 render_priority = 0
 shader = ExtResource("2_8om6r")
 shader_parameter/scale_repeat = 1.0
@@ -15,14 +15,14 @@ shader_parameter/base_texture = ExtResource("2_p38y4")
 
 [sub_resource type="BoxMesh" id="BoxMesh_novi1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yk2r6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4b82"]
 
 [node name="TestCube" type="RigidBody3D"]
 script = ExtResource("1_0x0bd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_sujft")
+material_override = SubResource("ShaderMaterial_kx78l")
 mesh = SubResource("BoxMesh_novi1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_yk2r6")
+shape = SubResource("BoxShape3D_m4b82")

@@ -1,18 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgeackiuu2bov"]
+[gd_scene load_steps=13 format=3 uid="uid://dgeackiuu2bov"]
 
 [ext_resource type="Script" path="res://scripts/door1.gd" id="1_fi1y0"]
-[ext_resource type="Shader" path="res://shaders/cameraViewportSample.gdshader" id="2_ml7k5"]
 [ext_resource type="Script" path="res://props/portal_area.gd" id="2_u2g2f"]
 [ext_resource type="Material" uid="uid://dl0gqsy5a4kmw" path="res://materials/checkered_floor.tres" id="3_5a2e0"]
 [ext_resource type="Material" uid="uid://d12rvmqtmlg1d" path="res://materials/green_screen_material.tres" id="3_7fyvu"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ni2d1"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ihmmf"]
-render_priority = 0
-shader = ExtResource("2_8dpci")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_ni2d1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5xtkw"]
 
